@@ -2,7 +2,7 @@
 
 ## Setup
 
-Install dependencies with `npm install`.
+Install dependencies with `npm install`. *This runs on node v 15.14.0*
 
 ## Running Webpack Development Server
 
