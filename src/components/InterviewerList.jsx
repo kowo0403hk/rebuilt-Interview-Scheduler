@@ -11,8 +11,8 @@ export default function InterviewerList(props) {
         // id={item.id} --> not needed because we are passing down a callback with this value in the setInterviewer key prop
         name={interviewer.name}
         avatar={interviewer.avatar}
-        selected={interviewer.id === props.interviewer}
-        setInterviewer={() => props.setInterviewer(interviewer.id)}
+        selected={interviewer.id === props.value}
+        setInterviewer={() => props.onChange(interviewer.id)}
       />
     );
   });
