@@ -25,14 +25,14 @@
 ### DayList
 
 - State:
-- Props:
-- Used by:
+- Props: days(array), day(string), setDay(function accept name of the day, e.g. Monday or Tuesday)
+- Used by: DayList to render DayListItem
 
 ### DayListItem
 
-- State:
-- Props:
-- Used by:
+- State: Has its own state of where the day is full or not.
+- Props: name(string), spots(number), selected(boolean), setDay(function)
+- Used by: DayListItem
 
 ### InterviewerList
 
