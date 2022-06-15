@@ -30,21 +30,21 @@
 
 ### DayListItem
 
-- State: Has its own state of where the day is full or not.
+- State: Has its own state of day.
 - Props: name(string), spots(number), selected(boolean), setDay(function)
 - Used by: DayListItem
 
 ### InterviewerList
 
 - State:
-- Props:
-- Used by:
+- Props: interviewers(array), setInterviewer(function), interviewer(number--id)
+- Used by: itself to render InterviewerListItem
 
 ### InterviewerListItem
 
-- State:
-- Props:
-- Used by:
+- State: Has its own state of which interviewer is chosen
+- Props: id(number), name(string), avatar(url), selected (boolean), setInterviewer(function, receive id as arg and sets the selecte interviewer)
+- Used by: itself
 
 ### Appointment
 
