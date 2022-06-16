@@ -1,0 +1,138 @@
+<mxfile host="65bd71144e">
+    <diagram id="TXkHe6lTQb1j4CiMwA3p" name="Page-1">
+        <mxGraphModel dx="1114" dy="799" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="8" value="" style="edgeStyle=none;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="60" width="414" height="172" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Application.jsx" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="26" y="24" width="109" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="appointments(array)&lt;br&gt;--&amp;gt;&amp;nbsp; each(id, time,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;interview: {&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;/span&gt;student, &lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;interviewer:{&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;id,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;name,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;avatar}})" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="74" width="169" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="22" y="322" width="413" height="216" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="index.jsx (Appointment)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="280" width="108" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="props =&amp;nbsp;&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;id,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;time,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;interview: {&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;student,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;interviewer: {&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;id,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;name,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;avatar}}" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="342" width="152" height="153" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="610" width="142" height="237" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="346" y="610" width="142" height="237" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="188" y="603" width="142" height="237" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Header.jsx" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="571" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#B09500;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="55" y="381" width="102" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="curved=1;endArrow=classic;html=1;fillColor=#e3c800;strokeColor=#B09500;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="18">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="63" y="388" as="sourcePoint"/>
+                        <mxPoint x="13" y="631" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="63" y="388"/>
+                            <mxPoint x="13" y="314"/>
+                            <mxPoint x="6" y="491"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="props =&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;time" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFF66;fillColor=none;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="41" y="633" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="32" y="911" width="460" height="154" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Show.jsx" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="184" y="583" width="58" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Empty.jsx" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="342" y="583" width="61" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="functions =&amp;nbsp;&lt;br&gt;onEdit&lt;br&gt;onCancel&lt;br&gt;onDelete&lt;br&gt;onAdd" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="246" y="74" width="182" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="32" y="1158" width="236" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Form.jsx" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="879" width="56" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="functions" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="234" y="345" width="178" height="163" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;strokeColor=#99FF99;" edge="1" parent="1" source="28" target="29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#99FF99;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="65" y="399" width="132" height="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;props =&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;interview: {&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;/span&gt;student,&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;/span&gt;interviewer: {&lt;/span&gt;&lt;span&gt;id,&amp;nbsp;&lt;/span&gt;&lt;span&gt;name,&amp;nbsp;&lt;/span&gt;&lt;span&gt;avatar}}&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#99FF99;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="194.5" y="631" width="120" height="131" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="props =&amp;nbsp;&lt;br&gt;onAdd" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="355" y="623" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="1155" width="236" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="Student Form" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="1137" width="83" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="InterviewerList.jsx" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="342" y="1137" width="105" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="1415" width="236" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="props =&amp;nbsp;&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;student,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;interviewer(id)&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;interviewerArray : [{&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;id,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;name,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;avatar}]" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=none;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="55" y="924" width="201" height="121" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FF99FF;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="197" y="691.5" width="112" height="54.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="[student, setStudent]&lt;br&gt;[interviewer(id), setInterviewer(id)]" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=none;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="301" y="926" width="164" height="119" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="use&lt;br&gt;props.student --&amp;gt; student&lt;br&gt;&lt;br&gt;use controlled components&lt;br&gt;(value, onChange)&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFCCCC;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="1180" width="205" height="143" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" style="edgeStyle=none;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;strokeColor=#FFCCCC;" edge="1" parent="1" source="47" target="46">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFCCCC;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="291" y="958" width="137" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="props =&amp;nbsp;&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;interviewersArray: [&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;id,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;name,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;avatar]&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;value: interviewer(id)&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;onChange: setInterviewer(id)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFCC;fillColor=none;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="349" y="1180" width="198" height="161" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" style="edgeStyle=none;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.864;entryY=0.714;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#FFFFCC;" edge="1" parent="1" source="51" target="49">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFCC;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="295" y="979" width="133" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="props =&amp;nbsp;&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;selected: boolean,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;avatar,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;name,&lt;br&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;setInterviewer(id) --&amp;gt; no need to pass in actual id becoz we will caculate on the parent component" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FFFFCC;fillColor=none;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="346" y="1436" width="201" height="148" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="InterviewerListItem.jsx" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="330.5" y="1391" width="128" height="18" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -8,6 +8,7 @@ import Empty from "./Empty";
 export default function Appointment(props) {
 
   // {time, interview object, id}
+  // {onEdit, onDelete, onAdd}
 
   return (
     <article className="appointment">
