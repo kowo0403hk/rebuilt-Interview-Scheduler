@@ -4,6 +4,8 @@ import DayListItem from "./DayListItem";
 
 export default function DayList(props) {
 
+  // {days, value, onChange}
+
   const mappedItem = props.days.map(item => {
     return (
       <DayListItem
