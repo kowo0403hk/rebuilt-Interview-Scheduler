@@ -13,6 +13,7 @@ export default function Application(props) {
 
   const mappedAppointments = Object.values(appointments).map((appointment) => {
     return (
+      //passing id, interview object and time
       <Appointment key={appointment.id} {...appointment} />
     );
   })
