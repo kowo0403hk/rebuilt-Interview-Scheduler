@@ -1,15 +1,26 @@
-import React, { useState } from "react";
-import DayList from "./DayList";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+
+
 import "components/Application.scss";
+import DayList from "./DayList";
 import Appointment from "./Appointment";
 
 // test-data
 import { appointments } from "./Appointment/appointment-data";
-import { days } from "./days-data";
 
 
 export default function Application(props) {
-  const [day, setDay] = useState("Monday");
+  const [day, setDay] = useState('Monday'); //to select specific day
+  const [days, setDays] = useState([]); //to store days array data fetched from API
+
+  useEffect(() => {
+    axios.get('http://localhost:8001/api/days')
+      .then(res => {
+        setDays([...res.data])
+      })
+      .catch(e => console.log(e.response));
+  }, []);
 
   const mappedAppointments = Object.values(appointments).map((appointment) => {
     return (
