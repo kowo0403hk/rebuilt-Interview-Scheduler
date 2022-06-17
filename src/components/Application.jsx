@@ -24,14 +24,9 @@ export default function Application(props) {
   // set up specific setState functions
   const setSelectedDay = selectedDay => setState({...state, selectedDay});
   const setDays = days => setState(prev => ({...prev, days})); // has to include setState(prev =>....) because the dependancy array should be empty and setDay itself is referring to days' state INSIDE effect method. 
+  // const setAppointments = appointments => setState(prev => ({...prev, appointments}));
+  // const setInterviewers = interviewers => setState(prev => ({...prev, interviewers}));
 
-  // useEffect(() => {
-  //   axios.get('http://localhost:8001/api/days')
-  //     .then(res => {
-  //       setDays(res.data)
-  //     })
-  //     .catch(e => console.log(e.response));
-  // }, []);
 
   useEffect(() => {
     Promise.all([
@@ -44,7 +39,7 @@ export default function Application(props) {
   }, [])
 
 
-  const mappedAppointments = Object.values(dailyAppointments).map((appointment) => {
+  const mappedAppointments = dailyAppointments.map((appointment) => {
     return (
       //passing id, interview object and time
       <Appointment key={appointment.id} {...appointment} />
@@ -73,6 +68,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {mappedAppointments}
+        <Appointment key='last' time="5pm" />
       </section>
     </main>
   );

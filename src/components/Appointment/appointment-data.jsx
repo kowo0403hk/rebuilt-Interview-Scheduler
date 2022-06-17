@@ -34,9 +34,5 @@ export const appointments = {
   "5": {
     id: 5,
     time: "4pm",
-  },
-  "6": {
-    id: 6,
-    time: "5pm",
   }
 };
