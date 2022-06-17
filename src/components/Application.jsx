@@ -11,13 +11,23 @@ import { appointments } from "./Appointment/appointment-data";
 
 
 export default function Application(props) {
-  const [day, setDay] = useState('Monday'); //to select specific day
-  const [days, setDays] = useState([]); //to store days array data fetched from API
+  // const [selectedDay, setSelectedDay] = useState('Monday'); //to select specific day
+  // const [days, setDays] = useState([]); //to store days array data fetched from API
+
+  const [state, setState] = useState({
+    selectedDay: 'Monday',
+    days: [],
+    appointments: []
+  });
+
+  // set up specific setState functions
+  const setSelectedDay = selectedDay => setState({...state, selectedDay});
+  const setDays = days => setState(prev => ({...prev, days})); // has to include setState(prev =>....) because the dependancy array should be empty and setDay itself is referring to days' state INSIDE effect method. 
 
   useEffect(() => {
     axios.get('http://localhost:8001/api/days')
       .then(res => {
-        setDays([...res.data])
+        setDays(res.data)
       })
       .catch(e => console.log(e.response));
   }, []);
@@ -29,6 +39,8 @@ export default function Application(props) {
     );
   })
 
+
+
   return (
     <main className="layout">
       <section className="sidebar">
@@ -39,7 +51,7 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-          <DayList days={days} value={day} onChange={setDay} />
+          <DayList days={state.days} value={state.selectedDay} onChange={setSelectedDay} />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
