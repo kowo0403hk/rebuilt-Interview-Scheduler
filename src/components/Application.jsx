@@ -5,9 +5,7 @@ import axios from 'axios';
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
-
-// test-data
-import { appointments } from "./Appointment/appointment-data";
+import { getAppointmentsForDay } from "helpers/selectors";
 
 
 export default function Application(props) {
@@ -17,22 +15,36 @@ export default function Application(props) {
   const [state, setState] = useState({
     selectedDay: 'Monday',
     days: [],
-    appointments: []
+    appointments: {},
+    interviewers: {}
   });
+
+  const dailyAppointments = getAppointmentsForDay(state, state.selectedDay);
 
   // set up specific setState functions
   const setSelectedDay = selectedDay => setState({...state, selectedDay});
   const setDays = days => setState(prev => ({...prev, days})); // has to include setState(prev =>....) because the dependancy array should be empty and setDay itself is referring to days' state INSIDE effect method. 
 
-  useEffect(() => {
-    axios.get('http://localhost:8001/api/days')
-      .then(res => {
-        setDays(res.data)
-      })
-      .catch(e => console.log(e.response));
-  }, []);
+  // useEffect(() => {
+  //   axios.get('http://localhost:8001/api/days')
+  //     .then(res => {
+  //       setDays(res.data)
+  //     })
+  //     .catch(e => console.log(e.response));
+  // }, []);
 
-  const mappedAppointments = Object.values(appointments).map((appointment) => {
+  useEffect(() => {
+    Promise.all([
+      axios.get('http://localhost:8001/api/days'),
+      axios.get('http://localhost:8001/api/appointments'),
+      axios.get('http://localhost:8001/api/interviewers')
+    ]).then(all => {
+      setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}))
+    }).catch(e => console.log(e));
+  }, [])
+
+
+  const mappedAppointments = Object.values(dailyAppointments).map((appointment) => {
     return (
       //passing id, interview object and time
       <Appointment key={appointment.id} {...appointment} />
