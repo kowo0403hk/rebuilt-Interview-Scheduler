@@ -6,7 +6,6 @@ import Empty from "./Empty";
 
 
 export default function Appointment(props) {
-
   // {time, interview object, id}
   // {onEdit, onDelete, onAdd}
 
