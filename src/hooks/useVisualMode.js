@@ -6,18 +6,14 @@ export default function useVisualMode(initial) {
 
   function transition(newMode, replace = false) {
     // the replace if-condition is same as the commented if-condition below. We spread prev in an array. [...prev] becomes a copy of history. We then pop of the last element but using slice to avoid mutation. the second argument of slice is basically the ...prev array's length - 1. After that, we spread the latest array and add newMode to complete a new history.
-    if(replace) {
       setMode(newMode);
-      setHistory((prev) => [...[...prev].slice(0, [...prev].length - 1), newMode])
-    } else {
-      setMode(newMode);
-      setHistory((prev) => [...prev, newMode]); //history stacking without using .push()
+      setHistory(replace ? (prev) => [...[...prev].slice(0, [...prev].length - 1), newMode] : (prev) => [...prev, newMode]) //history stacking without using .push()
     }
-  }
+  
 
   function back() {
     if(history.length > 1) {
-      setHistory((prev) => [...[...prev].slice(0, [...prev].length - 1)]); //history removing without using .pop()
+      setHistory((prev) => [...[...prev].slice(0, -1)]); //history removing without using .pop()
       setMode(history[history.length - 2]);
     } else {
       setMode(history[0])
