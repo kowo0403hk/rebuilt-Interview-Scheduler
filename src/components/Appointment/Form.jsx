@@ -6,7 +6,7 @@ export default function Form({
   student,
   interviewer,
   interviewers,
-  onSave,
+  save,
   onCancel,
 }) {
   const [apptStudent, setApptStudent] = useState(student || "");
@@ -49,7 +49,7 @@ export default function Form({
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={onSave}>
+          <Button confirm onClick={() => save(apptStudent, apptInterviewer)}>
             Save
           </Button>
         </section>

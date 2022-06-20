@@ -5,30 +5,42 @@ import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import Form from "./Form";
+import Status from "./Status";
 
 export default function Appointment({
   id,
   time,
   interview,
+  interviewers,
   bookInterview,
-  onDelete,
+  cancelInterview,
   onEdit,
 }) {
+  const EMPTY = "EMPTY";
+  const SHOW = "SHOW";
+  const CREATE = "CREATE";
+  const SAVE = "SAVE";
+  const DELETE = "DELETE";
+  const EDIT = "EDIT";
+  const CONFIRM = "CONFIRM";
+
+  const { mode, transition, back } = useVisualMode(interview ? SHOW : EMPTY);
+
   const save = (name, interviewer) => {
     const interview = {
       student: name,
       interviewer,
     };
 
-    return interview;
+    transition(SAVE);
+    bookInterview(id, interview).then(() => transition(SHOW)); //bookInterview returns a promise
   };
-  const EMPTY = "EMPTY";
-  const SHOW = "SHOW";
-  const CREATE = "CREATE";
-  const EDIT = "EDIT";
-  const CONFIRM = "CONFIRM";
 
-  const { mode, transition, back } = useVisualMode(interview ? SHOW : EMPTY);
+  const del = (name, interviewer) => {
+    const interview = null;
+
+    cancelInterview();
+  };
 
   return (
     <article className="appointment">
@@ -39,13 +51,14 @@ export default function Appointment({
           student={interview.student}
           interviewer={interview.interviewer}
           onEdit={onEdit}
-          onDelete={onDelete}
+          onDelete={del}
         />
       )}
       {mode === EMPTY && <Empty onClick={() => transition(CREATE)} />}
       {mode === CREATE && (
-        <Form interviewers={[]} onSave={save} onCancel={back} />
+        <Form interviewers={interviewers} save={save} onCancel={back} />
       )}
+      {mode === SAVE && <Status>Saving...</Status>}
     </article>
   );
 }

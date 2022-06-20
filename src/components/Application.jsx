@@ -4,9 +4,13 @@ import axios from "axios";
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+import {
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewersForDay,
+} from "helpers/selectors";
 
-export default function Application(props) {
+export default function Application() {
   // const [selectedDay, setSelectedDay] = useState('Monday'); //to select specific day
   // const [days, setDays] = useState([]); //to store days array data fetched from API
 
@@ -17,9 +21,7 @@ export default function Application(props) {
     interviewers: {},
   });
 
-  const dailyAppointments = getAppointmentsForDay(state, state.selectedDay);
-
-  console.log("dailyAppointments", dailyAppointments);
+  console.log(state.appointments);
 
   // set up specific setState functions
   const setSelectedDay = (selectedDay) => setState({ ...state, selectedDay });
@@ -45,12 +47,40 @@ export default function Application(props) {
   }, []);
 
   const bookInterview = (id, interview) => {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+
+    //return a promise so that we can do the transition after
+    return axios
+      .put(`http://localhost:8001/api/appointments/${id}`, { interview })
+      .then((response) => {
+        console.log(response.status, response);
+        setState({
+          ...state,
+          appointments,
+        });
+      })
+      .catch((e) => console.log(e.message));
+  };
+
+  const cancelInterview = (id, interview) => {
     console.log(id, interview);
   };
 
+  const dailyAppointments = getAppointmentsForDay(state, state.selectedDay);
+
   const mappedAppointments = dailyAppointments.map((appointment) => {
     // setup an interview object with student name and interviewer information
+    console.log("inside mappedAppointments", appointment.interview);
     const interview = getInterview(state, appointment.interview);
+    const interviewers = getInterviewersForDay(state, state.selectedDay);
 
     return (
       //passing id, interview object and time
@@ -59,12 +89,12 @@ export default function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
+        interviewers={interviewers}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
     );
   });
-
-  console.log("mappedAppointments", mappedAppointments);
 
   return (
     <main className="layout">

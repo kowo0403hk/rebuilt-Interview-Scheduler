@@ -15,7 +15,6 @@ export default function DayList({ days, value, onChange }) {
       />
     );
   });
-  console.log("mappedItem", mappedItem);
 
   return <ul>{mappedItem}</ul>;
 }
