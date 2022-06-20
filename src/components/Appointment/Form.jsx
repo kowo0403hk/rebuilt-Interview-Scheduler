@@ -1,50 +1,59 @@
-import React, { useState } from 'react';
-import InterviewerList from 'components/InterviewerList';
-import Button from 'components/Button';
+import React, { useState } from "react";
+import InterviewerList from "components/InterviewerList";
+import Button from "components/Button";
 
-export default function Form(props) {
-  // props: {student(string), interviewer(number), interviewers(array), onSave(function), onCancel(function)}
-
-  const [student, setStudent] = useState(props.student || '');
-  const [interviewer, setInterveiwer] = useState(props.interviewer || null);
+export default function Form({
+  student,
+  interviewer,
+  interviewers,
+  onSave,
+  onCancel,
+}) {
+  const [apptStudent, setApptStudent] = useState(student || "");
+  const [apptInterviewer, setApptInterveiwer] = useState(interviewer || null);
 
   const reset = () => {
-    setStudent('');
-    setInterveiwer(null);
+    setApptStudent("");
+    setApptInterveiwer(null);
   };
 
   const cancel = () => {
     reset();
-    props.onCancel();
+    onCancel();
   };
 
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete='off' onSubmit={(e) => e.preventDefault()}>
+        <form autoComplete="off" onSubmit={(e) => e.preventDefault()}>
           {/* student name input form */}
-          <input type="text" 
+          <input
+            type="text"
             className="appointment__create-input text--semi-bold"
-            name='name'
-            placeholder='Enter Student Name'
+            name="name"
+            placeholder="Enter Student Name"
             // control component here
-            value={student}
-            onChange={(e) => setStudent(e.target.value)}
+            value={apptStudent}
+            onChange={(e) => setApptStudent(e.target.value)}
           />
         </form>
-        <InterviewerList 
+        <InterviewerList
           // code
-          interviewers={props.interviewers}
-          value={interviewer}
-          onChange={setInterveiwer}
+          interviewers={interviewers}
+          value={apptInterviewer}
+          onChange={setApptInterveiwer}
         />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={cancel}>Cancel</Button>
-          <Button confirm onClick={props.onSave}>Save</Button>
+          <Button danger onClick={cancel}>
+            Cancel
+          </Button>
+          <Button confirm onClick={onSave}>
+            Save
+          </Button>
         </section>
       </section>
     </main>
   );
-};
+}

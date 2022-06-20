@@ -1,9 +1,14 @@
-import React from 'react';
+import React from "react";
 
-export default function Empty(props) {
+export default function Empty({ onClick }) {
   return (
     <main className="appointment__add">
-      <img onClick={props.onClick} src="./images/add.png" alt="Add" className="appointment__add-button" />
+      <img
+        onClick={onClick}
+        src="./images/add.png"
+        alt="Add"
+        className="appointment__add-button"
+      />
     </main>
   );
 }

@@ -1,32 +1,51 @@
-import React, {useEffect} from "react";
-import 'components/Appointment/style.scss';
+import React, { useEffect } from "react";
+import "components/Appointment/style.scss";
 import useVisualMode from "hooks/useVisualMode";
 import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import Form from "./Form";
 
+export default function Appointment({
+  id,
+  time,
+  interview,
+  bookInterview,
+  onDelete,
+  onEdit,
+}) {
+  const save = (name, interviewer) => {
+    const interview = {
+      student: name,
+      interviewer,
+    };
 
-export default function Appointment(props) {
-  // {time, interview object, id}
-  // {onEdit, onDelete, onAdd}
-  const EMPTY = 'EMPTY';
-  const SHOW = 'SHOW';
-  const CREATE = 'CREATE';
-  const EDIT = 'EDIT';
-  const CONFIRM = 'CONFIRM';
+    return interview;
+  };
+  const EMPTY = "EMPTY";
+  const SHOW = "SHOW";
+  const CREATE = "CREATE";
+  const EDIT = "EDIT";
+  const CONFIRM = "CONFIRM";
 
-  const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
-
+  const { mode, transition, back } = useVisualMode(interview ? SHOW : EMPTY);
 
   return (
     <article className="appointment">
-      <Header time={props.time} />
+      <Header time={time} />
 
-      {mode === SHOW && <Show student={props.interview.student} interviewer={props.interview.interviewer} onEdit={props.onEdit} onDelete={props.onDelete} />} 
+      {mode === SHOW && (
+        <Show
+          student={interview.student}
+          interviewer={interview.interviewer}
+          onEdit={onEdit}
+          onDelete={onDelete}
+        />
+      )}
       {mode === EMPTY && <Empty onClick={() => transition(CREATE)} />}
-      {mode === CREATE && <Form interviewers={[]} onCancel={() => back()} />}
-      
+      {mode === CREATE && (
+        <Form interviewers={[]} onSave={save} onCancel={back} />
+      )}
     </article>
-  ); 
-};
+  );
+}

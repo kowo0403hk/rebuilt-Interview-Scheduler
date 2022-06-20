@@ -19,6 +19,8 @@ export default function Application(props) {
 
   const dailyAppointments = getAppointmentsForDay(state, state.selectedDay);
 
+  console.log("dailyAppointments", dailyAppointments);
+
   // set up specific setState functions
   const setSelectedDay = (selectedDay) => setState({ ...state, selectedDay });
   const setDays = (days) => setState((prev) => ({ ...prev, days })); // has to include setState(prev =>....) because the dependancy array should be empty and setDay itself is referring to days' state INSIDE effect method.
@@ -42,6 +44,10 @@ export default function Application(props) {
       .catch((e) => console.log(e));
   }, []);
 
+  const bookInterview = (id, interview) => {
+    console.log(id, interview);
+  };
+
   const mappedAppointments = dailyAppointments.map((appointment) => {
     // setup an interview object with student name and interviewer information
     const interview = getInterview(state, appointment.interview);
@@ -53,9 +59,12 @@ export default function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
+        bookInterview={bookInterview}
       />
     );
   });
+
+  console.log("mappedAppointments", mappedAppointments);
 
   return (
     <main className="layout">
