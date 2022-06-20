@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Show({ student, interviewer, onEdit, onDelete }) {
+export default function Show({ id, student, interviewer, onEdit, onDelete }) {
   // props: {student, interviewer(id), onEdit(), onDelete()}
 
   return (
@@ -21,7 +21,7 @@ export default function Show({ student, interviewer, onEdit, onDelete }) {
             className="appointment__actions-button"
           />
           <img
-            onClick={onDelete}
+            onClick={() => onDelete(id)}
             src="./images/trash.png"
             alt="Delete"
             className="appointment__actions-button"

@@ -36,10 +36,9 @@ export default function Appointment({
     bookInterview(id, interview).then(() => transition(SHOW)); //bookInterview returns a promise
   };
 
-  const del = (name, interviewer) => {
-    const interview = null;
-
-    cancelInterview();
+  const del = (id) => {
+    transition(DELETE);
+    cancelInterview(id).then(() => transition(EMPTY));
   };
 
   return (
@@ -48,6 +47,7 @@ export default function Appointment({
 
       {mode === SHOW && (
         <Show
+          id={id}
           student={interview.student}
           interviewer={interview.interviewer}
           onEdit={onEdit}
@@ -59,6 +59,7 @@ export default function Appointment({
         <Form interviewers={interviewers} save={save} onCancel={back} />
       )}
       {mode === SAVE && <Status>Saving...</Status>}
+      {mode === DELETE && <Status>Deleting...</Status>}
     </article>
   );
 }

@@ -70,8 +70,29 @@ export default function Application() {
       .catch((e) => console.log(e.message));
   };
 
-  const cancelInterview = (id, interview) => {
-    console.log(id, interview);
+  const cancelInterview = (id) => {
+    const interview = null;
+
+    const appointment = {
+      ...state.appointments[id],
+      interview,
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+
+    return axios
+      .delete(`http://localhost:8001/api/appointments/${id}`)
+      .then((response) => {
+        console.log(response.status, response);
+        setState({
+          ...state,
+          appointments,
+        });
+      })
+      .catch((e) => console.log(e.message));
   };
 
   const dailyAppointments = getAppointmentsForDay(state, state.selectedDay);
