@@ -41,11 +41,11 @@ export default function useApplicationData() {
       .then((response) => {
         console.log(response.status, response);
         const days = updatespots(state, appointments);
-        setState({
-          ...state,
+        setState((prev) => ({
+          ...prev,
           appointments,
           days,
-        });
+        }));
       });
   };
 
@@ -67,11 +67,11 @@ export default function useApplicationData() {
       .then((response) => {
         console.log(response.status, response);
         const days = updatespots(state, appointments);
-        setState({
-          ...state,
+        setState((prev) => ({
+          ...prev,
           appointments,
           days,
-        });
+        }));
       });
   };
 
