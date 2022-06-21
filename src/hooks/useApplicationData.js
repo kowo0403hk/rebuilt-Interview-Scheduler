@@ -11,6 +11,19 @@ export default function useApplicationData() {
 
   const setSelectedDay = (selectedDay) => setState({ ...state, selectedDay });
 
+  const updatespots = (state, appointments) => {
+    const newdays = state.days.map((day) => {
+      let spots = 0;
+      for (const appointmentID of day.appointments) {
+        if (!appointments[appointmentID].interview) {
+          spots++;
+        }
+      }
+      return { ...day, spots };
+    });
+    return newdays;
+  };
+
   const bookInterview = (id, interview) => {
     const appointment = {
       ...state.appointments[id],
@@ -27,9 +40,11 @@ export default function useApplicationData() {
       .put(`http://localhost:8001/api/appointments/${id}`, { interview })
       .then((response) => {
         console.log(response.status, response);
+        const days = updatespots(state, appointments);
         setState({
           ...state,
           appointments,
+          days,
         });
       });
   };
@@ -51,9 +66,11 @@ export default function useApplicationData() {
       .delete(`http://localhost:8001/api/appointments/${id}`)
       .then((response) => {
         console.log(response.status, response);
+        const days = updatespots(state, appointments);
         setState({
           ...state,
           appointments,
+          days,
         });
       });
   };
