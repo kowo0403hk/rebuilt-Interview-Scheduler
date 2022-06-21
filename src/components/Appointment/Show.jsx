@@ -1,27 +1,26 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default function Show({ id, student, interviewer, onEdit, onDelete }) {
-  // props: {student, interviewer(id), onEdit(), onDelete()}
-
+function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">
       <section className="appointment__card-left">
-        <h2 className="text--regular">{student}</h2>
+        <h2 className="text--regular">{props.student}</h2>
         <section className="interviewer">
           <h4 className="text--light">Interviewer</h4>
-          <h3 className="text--regular">{interviewer.name}</h3>
+          <h3 className="text--regular">{props.interviewer.name}</h3>
         </section>
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <img
-            onClick={onEdit}
+            onClick={props.onEdit}
             src="./images/edit.png"
             alt="Edit"
             className="appointment__actions-button"
           />
           <img
-            onClick={() => onDelete(id)}
+            onClick={() => props.onDelete(props.id)}
             src="./images/trash.png"
             alt="Delete"
             className="appointment__actions-button"
@@ -31,3 +30,12 @@ export default function Show({ id, student, interviewer, onEdit, onDelete }) {
     </main>
   );
 }
+
+Show.propTypes = {
+  id: PropTypes.number.isRequired,
+  student: PropTypes.string.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
+
+export default Show;

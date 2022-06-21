@@ -1,15 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import InterviewerListItem from "./InterviewerListItem";
 import "components/InterviewerList.scss";
 
-export default function InterviewerList({ interviewers, value, onChange }) {
-  // {interviewers, value(interviewer_id), onChange}
-
+function InterviewerList({ interviewers, value, onChange }) {
   const mappedInterviewer = interviewers.map((interviewer) => {
     return (
       <InterviewerListItem
         key={interviewer.id}
-        // id={item.id} --> not needed because we are passing down a callback with this value in the setInterviewer key prop
         name={interviewer.name}
         avatar={interviewer.avatar}
         selected={interviewer.id === value}
@@ -25,3 +23,11 @@ export default function InterviewerList({ interviewers, value, onChange }) {
     </section>
   );
 }
+
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired,
+  value: PropTypes.number,
+  onChange: PropTypes.func.isRequired,
+};
+
+export default InterviewerList;

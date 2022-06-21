@@ -1,31 +1,39 @@
 import React from "react";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import "components/DayListItem.scss";
 
-export default function DayListItem({ name, spots, selected, setSelectedDay }) {
-  // {name, spots, selected, setDay}
-
+function DayListItem(props) {
   const dayClass = classNames("day-list__item", {
-    "day-list__item--selected": selected,
-    "day-list__item--full": !spots,
+    "day-list__item--selected": props.selected,
+    "day-list__item--full": !props.spots,
   });
 
   const formatSpots = () => {
-    if (spots > 1) {
-      return `${spots} spots remaining`;
-    } else if (spots === 1) {
-      return `${spots} spot remaining`;
+    if (props.spots > 1) {
+      return `${props.spots} spots remaining`;
+    } else if (props.spots === 1) {
+      return `${props.spots} spot remaining`;
     } else return "no spots remaining";
   };
 
   return (
     <li
       className={dayClass}
-      onClick={() => setSelectedDay(name)}
-      selected={selected}
+      onClick={() => props.setSelectedDay(props.name)}
+      selected={props.selected}
     >
-      <h2 className="text--regular">{name}</h2>
+      <h2 className="text--regular">{props.name}</h2>
       <h3 className="text--light">{formatSpots()}</h3>
     </li>
   );
 }
+
+DayListItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  spots: PropTypes.number.isRequired,
+  selected: PropTypes.bool.isRequired,
+  setSelectedDay: PropTypes.func.isRequired,
+};
+
+export default DayListItem;

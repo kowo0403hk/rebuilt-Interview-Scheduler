@@ -1,22 +1,30 @@
 import React from "react";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import "components/InterviewerListItem.scss";
 
-export default function InterviewerListItem({
-  name,
-  avatar,
-  selected,
-  setInterviewer,
-}) {
+function InterviewerListItem(props) {
   const interviewerClass = classNames("interviewers__item", {
-    "interviewers__item--selected": selected,
+    "interviewers__item--selected": props.selected,
   });
 
   return (
-    <li onClick={setInterviewer} className={interviewerClass}>
-      <img className="interviewers__item-image" src={avatar} alt={name} />
-      {/* if not selected, then name won't show */}
-      {selected && name}
+    <li onClick={props.setInterviewer} className={interviewerClass}>
+      <img
+        className="interviewers__item-image"
+        src={props.avatar}
+        alt={props.name}
+      />
+      {props.selected && props.name}
     </li>
   );
 }
+
+InterviewerListItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  selected: PropTypes.bool.isRequired,
+  setInterviewer: PropTypes.func.isRequired,
+};
+
+export default InterviewerListItem;

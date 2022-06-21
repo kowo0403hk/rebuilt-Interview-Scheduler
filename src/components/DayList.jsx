@@ -1,20 +1,27 @@
 import React from "react";
+import PropTypes from "prop-types";
 import DayListItem from "./DayListItem";
 
-export default function DayList({ days, value, onChange }) {
-  // {days, value, onChange}
-
-  const mappedItem = days.map((item) => {
+function DayList(props) {
+  const mappedItem = props.days.map((item) => {
     return (
       <DayListItem
         key={item.id}
         name={item.name}
         spots={item.spots}
-        selected={item.name === value}
-        setSelectedDay={onChange}
+        selected={item.name === props.value}
+        setSelectedDay={props.onChange}
       />
     );
   });
 
   return <ul>{mappedItem}</ul>;
 }
+
+DayList.propTypes = {
+  days: PropTypes.array.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+export default DayList;

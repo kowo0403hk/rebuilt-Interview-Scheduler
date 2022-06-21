@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Status({ children }) {
+export default function Status(props) {
   return (
     <main className="appointment__card appointment__card--status">
       <img
@@ -8,7 +8,7 @@ export default function Status({ children }) {
         alt="Loading"
         className="appointment__status-image"
       />
-      <h1 className="text--semi-bold">{children}</h1>
+      <h1 className="text--semi-bold">{props.children}</h1>
     </main>
   );
 }

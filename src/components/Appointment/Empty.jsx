@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default function Empty({ onClick }) {
+function Empty(props) {
   return (
     <main className="appointment__add">
       <img
-        onClick={onClick}
+        onClick={props.onClick}
         src="./images/add.png"
         alt="Add"
         className="appointment__add-button"
@@ -12,3 +13,9 @@ export default function Empty({ onClick }) {
     </main>
   );
 }
+
+Empty.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
+export default Empty;

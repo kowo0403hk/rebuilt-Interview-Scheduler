@@ -1,16 +1,13 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 
-export default function Form({
-  student,
-  interviewer,
-  interviewers,
-  save,
-  onCancel,
-}) {
-  const [apptStudent, setApptStudent] = useState(student || "");
-  const [apptInterviewer, setApptInterveiwer] = useState(interviewer || null);
+function Form(props) {
+  const [apptStudent, setApptStudent] = useState(props.student || "");
+  const [apptInterviewer, setApptInterveiwer] = useState(
+    props.interviewer || null
+  );
 
   const reset = () => {
     setApptStudent("");
@@ -19,7 +16,7 @@ export default function Form({
 
   const cancel = () => {
     reset();
-    onCancel();
+    props.onCancel();
   };
 
   return (
@@ -39,7 +36,7 @@ export default function Form({
         </form>
         <InterviewerList
           // code
-          interviewers={interviewers}
+          interviewers={props.interviewers}
           value={apptInterviewer}
           onChange={setApptInterveiwer}
         />
@@ -49,7 +46,10 @@ export default function Form({
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={() => save(apptStudent, apptInterviewer)}>
+          <Button
+            confirm
+            onClick={() => props.save(apptStudent, apptInterviewer)}
+          >
             Save
           </Button>
         </section>
@@ -57,3 +57,13 @@ export default function Form({
     </main>
   );
 }
+
+Form.propTypes = {
+  student: PropTypes.string,
+  interviewer: PropTypes.number,
+  interviewers: PropTypes.array.isRequired,
+  save: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+};
+
+export default Form;
