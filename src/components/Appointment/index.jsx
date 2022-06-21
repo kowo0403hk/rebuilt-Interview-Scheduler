@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "components/Appointment/style.scss";
 import useVisualMode from "hooks/useVisualMode";
 import Header from "./Header";
@@ -38,7 +38,7 @@ export default function Appointment({
     transition(SAVE);
     bookInterview(id, interview)
       .then(() => transition(SHOW))
-      .catch((e) => transition(ERROR_SAVE, true)); //bookInterview returns a promise
+      .catch((e) => transition(ERROR_SAVE, true));
   };
 
   const confirmDel = () => {
@@ -93,7 +93,7 @@ export default function Appointment({
         <Error onClose={back}>Could not save appointment</Error>
       )}
       {mode === ERROR_DELETE && (
-        <Error onClose={back}>Could not cancel appointment.</Error>
+        <Error onClose={back}>Could not cancel appointment</Error>
       )}
     </article>
   );
