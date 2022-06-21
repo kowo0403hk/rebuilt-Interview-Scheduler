@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "components/Button";
 
-export default function Confirm({ children, onConfirm, onCancel }) {
+export default function Confirm({ children, id, onDelete, onCancel }) {
   // {message, onConfirm, onCancel}
 
   return (
@@ -11,7 +11,7 @@ export default function Confirm({ children, onConfirm, onCancel }) {
         <Button onClick={onCancel} danger>
           Cancel
         </Button>
-        <Button onClick={onConfirm} danger>
+        <Button onClick={() => onDelete(id)} danger>
           Confirm
         </Button>
       </section>

@@ -6,6 +6,7 @@ import Show from "./Show";
 import Empty from "./Empty";
 import Form from "./Form";
 import Status from "./Status";
+import Confirm from "./Confirm";
 
 export default function Appointment({
   id,
@@ -14,7 +15,6 @@ export default function Appointment({
   interviewers,
   bookInterview,
   cancelInterview,
-  onEdit,
 }) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -36,9 +36,17 @@ export default function Appointment({
     bookInterview(id, interview).then(() => transition(SHOW)); //bookInterview returns a promise
   };
 
+  const confirmDel = () => {
+    transition(CONFIRM);
+  };
+
   const del = (id) => {
     transition(DELETE);
     cancelInterview(id).then(() => transition(EMPTY));
+  };
+
+  const editAppt = () => {
+    transition(EDIT);
   };
 
   return (
@@ -50,16 +58,30 @@ export default function Appointment({
           id={id}
           student={interview.student}
           interviewer={interview.interviewer}
-          onEdit={onEdit}
-          onDelete={del}
+          onEdit={editAppt}
+          onDelete={confirmDel}
         />
       )}
       {mode === EMPTY && <Empty onClick={() => transition(CREATE)} />}
       {mode === CREATE && (
         <Form interviewers={interviewers} save={save} onCancel={back} />
       )}
+      {mode === EDIT && (
+        <Form
+          student={interview.student}
+          interviewer={interview.interviewer.id}
+          interviewers={interviewers}
+          save={save}
+          onCancel={back}
+        />
+      )}
       {mode === SAVE && <Status>Saving...</Status>}
       {mode === DELETE && <Status>Deleting...</Status>}
+      {mode === CONFIRM && (
+        <Confirm id={id} onDelete={del}>
+          Are you sure you want to delete this appointment?
+        </Confirm>
+      )}
     </article>
   );
 }
