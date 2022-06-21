@@ -26,8 +26,6 @@ export default function Application() {
   // set up specific setState functions
   const setSelectedDay = (selectedDay) => setState({ ...state, selectedDay });
   const setDays = (days) => setState((prev) => ({ ...prev, days })); // has to include setState(prev =>....) because the dependancy array should be empty and setDay itself is referring to days' state INSIDE effect method.
-  // const setAppointments = appointments => setState(prev => ({...prev, appointments}));
-  // const setInterviewers = interviewers => setState(prev => ({...prev, interviewers}));
 
   useEffect(() => {
     Promise.all([
@@ -57,7 +55,7 @@ export default function Application() {
       [id]: appointment,
     };
 
-    //return a promise so that we can do the transition after
+    //return a promise so that we can do the transition after. We are not catching any error here because the Appointment component will deal with it.
     return axios
       .put(`http://localhost:8001/api/appointments/${id}`, { interview })
       .then((response) => {
@@ -66,8 +64,7 @@ export default function Application() {
           ...state,
           appointments,
         });
-      })
-      .catch((e) => console.log(e.message));
+      });
   };
 
   const cancelInterview = (id) => {
@@ -91,8 +88,7 @@ export default function Application() {
           ...state,
           appointments,
         });
-      })
-      .catch((e) => console.log(e.message));
+      });
   };
 
   const dailyAppointments = getAppointmentsForDay(state, state.selectedDay);
@@ -104,7 +100,6 @@ export default function Application() {
     const interviewers = getInterviewersForDay(state, state.selectedDay);
 
     return (
-      //passing id, interview object and time
       <Appointment
         key={appointment.id}
         id={appointment.id}
