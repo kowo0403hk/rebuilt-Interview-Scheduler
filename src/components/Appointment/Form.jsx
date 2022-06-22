@@ -17,6 +17,7 @@ function Form(props) {
 
   const cancel = () => {
     reset();
+    setError();
     props.onCancel();
   };
 
@@ -31,6 +32,7 @@ function Form(props) {
       return;
     }
 
+    setError("");
     props.onSave(apptStudent, apptInterviewer);
   };
 

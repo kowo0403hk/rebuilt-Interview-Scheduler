@@ -4,56 +4,54 @@ import { render, cleanup, fireEvent } from "@testing-library/react";
 
 import Button from "components/Button";
 
-afterEach(cleanup);
-
-it("renders without crashing", () => {
-  render(<Button />);
-});
-
-it("renders its `children` prop as text", () => {
-  const { getByText } = render(<Button>Default</Button>);
-  expect(getByText("Default")).toBeInTheDocument();
-});
-
-it("renders a default button style", () => {
-  const { getByText } = render(<Button>Default</Button>);
-  expect(getByText("Default")).toHaveClass("button");
-});
-
-it("renders a confirm button", () => {
-  const { getByText } = render(<Button confirm>Confirm</Button>);
-  expect(getByText("Confirm")).toHaveClass("button--confirm");
-});
-
-it("renders a danger button", () => {
-  const { getByText } = render(<Button danger>Danger</Button>);
-  expect(getByText("Danger")).toHaveClass("button--danger");
-});
-
-it("renders a clickable button", () => {
+describe("Button", () => {
+  afterEach(cleanup);
   const handleClick = jest.fn();
-  const { getByText } = render(
-    <Button onClick={handleClick}>Clickable</Button>
-  );
+  it("renders without crashing", () => {
+    render(<Button onClick={handleClick} />);
+  });
 
-  const button = getByText("Clickable");
+  it("renders its `children` prop as text", () => {
+    const { getByText } = render(
+      <Button onClick={handleClick}>Default</Button>
+    );
+    expect(getByText("Default")).toBeInTheDocument();
+  });
 
-  fireEvent.click(button);
+  it("renders a default button style", () => {
+    const { getByText } = render(
+      <Button onClick={handleClick}>Default</Button>
+    );
+    expect(getByText("Default")).toHaveClass("button");
+  });
 
-  expect(handleClick).toHaveBeenCalledTimes(1);
-});
+  it("renders a confirm button", () => {
+    const { getByText } = render(
+      <Button confirm onClick={handleClick}>
+        Confirm
+      </Button>
+    );
+    expect(getByText("Confirm")).toHaveClass("button--confirm");
+  });
 
-it("renders a disabled button", () => {
-  const handleClick = jest.fn();
-  const { getByText } = render(
-    <Button disabled onClick={handleClick}>
-      Disabled
-    </Button>
-  );
+  it("renders a danger button", () => {
+    const { getByText } = render(
+      <Button danger onClick={handleClick}>
+        Danger
+      </Button>
+    );
+    expect(getByText("Danger")).toHaveClass("button--danger");
+  });
 
-  const button = getByText("Disabled");
+  it("renders a clickable button", () => {
+    const { getByText } = render(
+      <Button onClick={handleClick}>Clickable</Button>
+    );
 
-  fireEvent.click(button);
+    const button = getByText("Clickable");
 
-  expect(handleClick).toHaveBeenCalledTimes(0);
+    fireEvent.click(button);
+
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
 });
