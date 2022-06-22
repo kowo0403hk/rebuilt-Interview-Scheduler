@@ -69,7 +69,7 @@ function Appointment(props) {
       )}
       {mode === EMPTY && <Empty onClick={() => transition(CREATE)} />}
       {mode === CREATE && (
-        <Form interviewers={props.interviewers} save={save} onCancel={back} />
+        <Form interviewers={props.interviewers} onSave={save} onCancel={back} />
       )}
       {mode === EDIT && (
         <Form

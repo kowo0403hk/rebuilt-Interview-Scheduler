@@ -8,6 +8,7 @@ function Form(props) {
   const [apptInterviewer, setApptInterveiwer] = useState(
     props.interviewer || null
   );
+  const [error, setError] = useState("");
 
   const reset = () => {
     setApptStudent("");
@@ -19,12 +20,27 @@ function Form(props) {
     props.onCancel();
   };
 
+  const validate = () => {
+    if (apptStudent === "") {
+      setError("Student Name cannot be blank");
+      return;
+    }
+
+    if (!apptInterviewer) {
+      setError("Please select an interviewer");
+      return;
+    }
+
+    props.onSave(apptStudent, apptInterviewer);
+  };
+
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
         <form autoComplete="off" onSubmit={(e) => e.preventDefault()}>
           {/* student name input form */}
           <input
+            data-testid="student-name-input"
             type="text"
             className="appointment__create-input text--semi-bold"
             name="name"
@@ -33,6 +49,7 @@ function Form(props) {
             value={apptStudent}
             onChange={(e) => setApptStudent(e.target.value)}
           />
+          <section className="appointment__validation">{error}</section>
         </form>
         <InterviewerList
           // code
@@ -46,10 +63,7 @@ function Form(props) {
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button
-            confirm
-            onClick={() => props.save(apptStudent, apptInterviewer)}
-          >
+          <Button confirm onClick={validate}>
             Save
           </Button>
         </section>
@@ -62,7 +76,7 @@ Form.propTypes = {
   student: PropTypes.string,
   interviewer: PropTypes.number,
   interviewers: PropTypes.array.isRequired,
-  save: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
 };
 
