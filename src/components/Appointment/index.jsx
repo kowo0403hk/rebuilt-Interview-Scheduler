@@ -76,7 +76,7 @@ function Appointment(props) {
           student={props.interview.student}
           interviewer={props.interview.interviewer.id}
           interviewers={props.interviewers}
-          save={save}
+          onSave={save}
           onCancel={back}
         />
       )}
