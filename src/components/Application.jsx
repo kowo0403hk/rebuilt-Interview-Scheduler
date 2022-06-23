@@ -1,5 +1,4 @@
 import React from "react";
-
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
@@ -11,15 +10,19 @@ import {
 import useApplicationData from "hooks/useApplicationData";
 
 export default function Application() {
+  ///////////////////////////////////////////////////////////////////////////////////
+  // state management and custom hook functions
+  //////////////////////////////////////////////////////////////////////////////////
   const { state, setSelectedDay, bookInterview, cancelInterview } =
     useApplicationData();
 
+  ///////////////////////////////////////////////////////////////////////////////////
+  // mapping an array for Appointment componenet rendering for a selected weekday
+  //////////////////////////////////////////////////////////////////////////////////
   const mappedAppointments = getAppointmentsForDay(
     state,
     state.selectedDay
   ).map((appointment) => {
-    // setup an interview object with student name and interviewer information
-
     return (
       <Appointment
         key={appointment.id}

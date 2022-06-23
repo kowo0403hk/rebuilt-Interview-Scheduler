@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import DayListItem from "./DayListItem";
 
 function DayList(props) {
+  ///////////////////////////////////////////////////////////////////////////////////
+  // map incoming array of days to render Monday thru Friday correctly on App
+  //////////////////////////////////////////////////////////////////////////////////
   const mappedItem = props.days.map((item) => {
     return (
       <DayListItem

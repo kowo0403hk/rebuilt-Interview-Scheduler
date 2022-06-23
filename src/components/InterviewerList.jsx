@@ -4,6 +4,9 @@ import InterviewerListItem from "./InterviewerListItem";
 import "components/InterviewerList.scss";
 
 function InterviewerList({ interviewers, value, onChange }) {
+  ///////////////////////////////////////////////////////////////////////////////////
+  // map incoming interviewers array to render individual interviewer on App
+  //////////////////////////////////////////////////////////////////////////////////
   const mappedInterviewer = interviewers.map((interviewer) => {
     return (
       <InterviewerListItem
@@ -11,7 +14,7 @@ function InterviewerList({ interviewers, value, onChange }) {
         name={interviewer.name}
         avatar={interviewer.avatar}
         selected={interviewer.id === value}
-        setInterviewer={() => onChange(interviewer.id)}
+        setApptInterviewer={() => onChange(interviewer.id)}
       />
     );
   });

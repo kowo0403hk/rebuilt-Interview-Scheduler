@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// custom hook for state management of mode and history used are the Appointment component level
+///////////////////////////////////////////////////////////////////////////////////////////////////
 export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);

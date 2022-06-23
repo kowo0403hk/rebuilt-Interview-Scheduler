@@ -11,6 +11,9 @@ import Confirm from "./Confirm";
 import Error from "./Error";
 
 function Appointment(props) {
+  //////////////////////////////////////////////////////////////////////////////
+  // constants for mode changing
+  //////////////////////////////////////////////////////////////////////////////
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -21,9 +24,21 @@ function Appointment(props) {
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
 
+  // state management for mode of display with customer hook functions
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
+
+  ///////////////////////////////////////////////////////////////////////////////////
+  // functions to be passed down to child components and manage state at this level
+  //////////////////////////////////////////////////////////////////////////////////
+  const del = (id) => {
+    transition(DELETE, true);
+    props
+      .cancelInterview(id)
+      .then(() => transition(EMPTY))
+      .catch((e) => transition(ERROR_DELETE, true));
+  };
 
   const save = (name, interviewer) => {
     const interview = {
@@ -38,22 +53,6 @@ function Appointment(props) {
       .catch((e) => transition(ERROR_SAVE, true));
   };
 
-  const confirmDel = () => {
-    transition(CONFIRM);
-  };
-
-  const del = (id) => {
-    transition(DELETE, true);
-    props
-      .cancelInterview(id)
-      .then(() => transition(EMPTY))
-      .catch((e) => transition(ERROR_DELETE, true));
-  };
-
-  const editAppt = () => {
-    transition(EDIT);
-  };
-
   return (
     <article className="appointment">
       <Header time={props.time} />
@@ -63,8 +62,8 @@ function Appointment(props) {
           id={props.id}
           student={props.interview.student}
           interviewer={props.interview.interviewer}
-          onEdit={editAppt}
-          onDelete={confirmDel}
+          onEdit={() => transition(EDIT)}
+          onDelete={() => transition(CONFIRM)}
         />
       )}
       {mode === EMPTY && <Empty onClick={() => transition(CREATE)} />}

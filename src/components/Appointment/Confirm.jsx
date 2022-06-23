@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "components/Button";
 
+//Delete confirmation
 function Confirm(props) {
   return (
     <main className="appointment__card appointment__card--confirm">

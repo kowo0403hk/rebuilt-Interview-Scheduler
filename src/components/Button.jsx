@@ -4,7 +4,9 @@ import "components/Button.scss";
 import classNames from "classnames";
 
 function Button(props) {
-  // {confirm/danger, disabled, onClick}
+  ///////////////////////////////////////////////////////////////////////////////////
+  // setting up classNames for css styling
+  //////////////////////////////////////////////////////////////////////////////////
   const buttonClass = classNames("button", {
     "button--confirm": props.confirm,
     "button--danger": props.danger,

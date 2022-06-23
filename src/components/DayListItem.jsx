@@ -4,11 +4,17 @@ import classNames from "classnames";
 import "components/DayListItem.scss";
 
 function DayListItem(props) {
+  ///////////////////////////////////////////////////////////////////////////////////
+  // setting up classNames for css styling
+  //////////////////////////////////////////////////////////////////////////////////
   const dayClass = classNames("day-list__item", {
     "day-list__item--selected": props.selected,
     "day-list__item--full": !props.spots,
   });
 
+  ///////////////////////////////////////////////////////////////////////////////////
+  // function to determine the usage of singular or plural form of {spot}
+  //////////////////////////////////////////////////////////////////////////////////
   const formatSpots = () => {
     if (props.spots > 1) {
       return `${props.spots} spots remaining`;
