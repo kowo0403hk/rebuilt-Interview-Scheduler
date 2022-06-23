@@ -37,7 +37,7 @@ export default function useApplicationData() {
 
     //return a promise so that we can do the transition after. We are not catching any error here because the Appointment component will deal with it.
     return axios
-      .put(`http://localhost:8001/api/appointments/${id}`, { interview })
+      .put(`/api/appointments/${id}`, { interview })
       .then((response) => {
         console.log(response.status, response);
         const days = updatespots(state, appointments);
@@ -62,24 +62,22 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
-    return axios
-      .delete(`http://localhost:8001/api/appointments/${id}`)
-      .then((response) => {
-        console.log(response.status, response);
-        const days = updatespots(state, appointments);
-        setState((prev) => ({
-          ...prev,
-          appointments,
-          days,
-        }));
-      });
+    return axios.delete(`/api/appointments/${id}`).then((response) => {
+      console.log(response.status, response);
+      const days = updatespots(state, appointments);
+      setState((prev) => ({
+        ...prev,
+        appointments,
+        days,
+      }));
+    });
   };
 
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:8001/api/days"),
-      axios.get("http://localhost:8001/api/appointments"),
-      axios.get("http://localhost:8001/api/interviewers"),
+      axios.get("/api/days"),
+      axios.get("/api/appointments"),
+      axios.get("/api/interviewers"),
     ])
       .then((all) => {
         setState((prev) => ({
